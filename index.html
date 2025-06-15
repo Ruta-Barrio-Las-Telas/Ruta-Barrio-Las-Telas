@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Ruta Barrio Las Telas</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.css" />
+</head>
+
+<body>
+  <div data-scroll-container>
+    <section id="sticky-section" data-scroll-section style="height: 200vh; position: relative;">
+
+      <!-- Contenido fijo -->
+      <div data-scroll data-scroll-sticky data-scroll-target="#sticky-section"
+      style="position: absolute; top: 0; left: 0; width: 100vw; height: 100vh;">
+        <!-- Imagen de fondo-->
+        <img id="calle1" src="assets/calle-barrio-las-telas.jpg"
+          style="width: 100%; height: 100%; object-fit: cover; object-position: top;" />
+        <div id="calle1Cover" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(27, 42, 65, 0.2); pointer-events: none;"></div>
+        <img id="calle2" class="fade-toggle" src="assets/calle-barrio-2.png"
+          style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;" />
+        <div id="calle2Cover" class="fade-toggle" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(99, 87, 73, 0.3); pointer-events: none;"></div>
+
+        <!-- Título -->
+        <div style="position: absolute; top: 10vh; left: 50%; transform: translateX(-50%); width: 100%; text-align: center;">
+          <div style="position: relative; display: inline-block; width: 25  vw; max-width: 700px; min-width: 250px;">
+            <img id="tituloRojo" src="assets/titulo-ruta-rojo.png" class="no-stagger" style="width: 100%; height: auto; z-index: 1; position: absolute; top: 0; left: 0;" />
+            <img id="tituloBlanco" class="fade-toggle" src="assets/titulo-ruta-blanco.png" style="width: 100%; height: auto; z-index: 2; position: absolute; top: 0; left: 0;" />
+            <div style="position: relative; width: 100%; height: 0; padding-bottom: 50%;"></div>
+            <!-- Espacio para que el texto quede debajo de la imagen absoluta -->
+          </div>
+          <p style="padding-top:0.2rem; padding-bottom: 0;  margin: 1.5em auto 0 auto;">
+            Entre calles llenas de historia y patrimonio, este sector es el destino ideal para quienes
+          </p>
+          <p style="padding: 0; margin:0;">buscan encontrar telas en un centro comercial de suma importancia en la ciudad.</p>
+        </div>
+
+      </div>
+
+    <button class="v-button fast-disappear" data-scroll data-scroll-class="appear" data-scroll-call="deactivateImg-calle2-calle2Cover-tituloBlanco" data-scroll-repeat="true" data-scroll-offset="0%,80%" data-scroll-to="#buttons-section" aria-label="Bajar sección">
+      &#9660;
+    </button>
+
+    </section>
+
+    <!-- Sección de botones con fondo transparente y por encima -->
+    <section id="buttons-section" data-scroll-section
+    style="background: transparent; margin-top: -100vh; position: relative; z-index: 4;">
+      <div class="button-list stagger-container disappear"
+          data-scroll data-scroll-class="appear" data-scroll-repeat="true" data-scroll-call="activateImg-calle2-calle2Cover-tituloBlanco" data-scroll-offset="80%, 0%">
+        <button onclick="location.href='Historia'" class="menu-btn">HISTORIA</button>
+        <button onclick="location.href='Ruta-Textil'" class="menu-btn">RUTA TEXTIL</button>
+        <button onclick="location.href='Textiles'" class="menu-btn">TEXTILES</button>
+        <button onclick="location.href='Voces'" class="menu-btn">VOCES</button>
+        <button onclick="location.href='El-Proyecto'" class="menu-btn">EL PROYECTO</button>
+      </div>
+    </section>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

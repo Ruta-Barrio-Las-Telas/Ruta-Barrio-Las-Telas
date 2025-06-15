@@ -1,0 +1,259 @@
+/* Reset básico */
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: "Nunito Sans";
+  scroll-behavior: auto;
+  color:#fff;
+  height: 100%;
+}
+
+/* Contenido footer */
+.footer {
+  background-color: #423930;
+  padding: 2rem;
+  color: white;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.footer-content {
+  text-align: justify;
+  font-family: 'Nunito Sans', sans-serif;
+  padding: 0;
+  margin: 0;
+  font-size: 0.75rem; /* aproximadamente 12px */
+  max-width: 300px;    /* para que la justificación se note */
+}
+
+.footer-content img {
+  margin: 0;
+  margin-top: 0.5rem;
+  max-width: 100px;
+  height: auto;
+}
+
+
+/* Contenido para el container*/
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.section-container {
+  height: 300vh;
+  display: flex;
+  flex-direction: column;
+}
+.first-view {
+  height: 200vh;
+  display: flex;
+  flex-direction: column;
+
+  background-image:
+    /* 1. Gradiente general (de transparente a color y luego blanco) */
+    linear-gradient(to bottom, transparent, transparent 45%, #635749 55%, #635749 95%, rgb(108, 108, 108) 100%),
+
+    /* 2. Capa semi-transparente sobre la imagen */
+    linear-gradient(rgba(99, 87, 73, 0.3), rgba(99, 87, 73, 0.3)),
+
+    /* 3. Imagen de fondo */
+    url('assets/foto-independencia-30.png');
+
+  background-size:
+    100% 100%,   /* gradiente cubre todo */
+    100% 60%,    /* capa oscura cubre 50% de alto */
+    100% auto;   /* imagen: ancho completo, alto proporcional */
+
+  background-repeat: no-repeat, no-repeat, no-repeat;
+
+  background-position:
+    top,
+    top 5%,
+    top 5%;  /* margen superior del 5% para capa e imagen */
+
+  background-color:rgb(108, 108, 108) ; /* fallback */
+}
+
+.section-header {
+  height: 50px; /* altura fija */
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.section-split-content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: row;
+}
+
+.left-content, .right-content {
+  flex: 1;
+  text-align: justify;
+}
+
+.left-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; /* aquí se alinea el contenido al final */
+  padding: 2rem;
+}
+
+/* Contenido para escritura */
+
+.giant-title {
+  font-family: "Space Mono", monospace;
+  font-size: 8vw;
+  color: white;
+  text-align: center;
+  letter-spacing: 0.05em;
+  line-height: 1.1;
+  margin: 2rem 0;
+  text-shadow: 2px 4px 16px rgba(0,0,0,0.25);
+}
+
+.big-title {
+  font-family: "Space Mono", monospace;
+  font-size: 3.75rem; /* 60px */
+  color: white;
+  text-align: center;
+  letter-spacing: 0.05em;
+  line-height: 1.1;
+  margin: 2rem 0;
+  text-shadow: 2px 4px 16px rgba(0,0,0,0.25);
+}
+
+.parrafo {
+  font-size: 1.25rem;
+  padding-right: 1rem;
+}
+
+.punto-aparte {
+  margin-bottom: 1em;
+}
+
+.cita {
+  font-style: italic;
+  font-size: 1rem;
+  text-align: center;
+  font-family: "Nunito Sans", sans-serif;
+  color: #ffffff;
+}
+
+/* Contenido izquierdo de la primera vista */
+.left-cita-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 2rem;
+  gap: 1rem;
+}
+
+.left-cita-container img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+}
+
+
+/* Contenido de la segunda vista */
+
+/* Segunda vista: Patrimonio de la zona */
+div {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+body {
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+}
+[data-scroll-container] {
+  will-change: transform;
+}
+
+.second-view {
+  background-color: rgb(108, 108, 108);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+.second-view .section-header {
+  padding: 2rem;
+  color: white;
+}
+
+.second-view .section-split-content {
+  display: flex;
+  flex: 1;
+  padding: 0;
+  gap: 0;
+}
+
+.second-view .left-content {
+  flex: 0.7 1 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: white;
+}
+
+.second-view .right-content {
+  flex: 1.3 1 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.second-view .right-content img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .second-view .section-split-content {
+    flex-direction: column;
+  }
+
+  .second-view .left-content,
+  .second-view .right-content {
+    flex: none;
+    width: 100%;
+  }
+
+  .second-view .right-content img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+
+/* Manejo de aparición de contenido*/
+
+/* Efecto de aparición suave desde abajo al hacer scroll */
+.fade-in-on-scroll {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1s ease, transform 1s ease;
+  will-change: opacity, transform;
+}
+
+/* Se activa cuando entra en el viewport */
+.fade-in-on-scroll.appear {
+  opacity: 1;
+  transform: translateY(0);
+}
