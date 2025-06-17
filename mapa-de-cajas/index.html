@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Mapa Interactivo</title>
+  <style>
+    #info {
+      margin: 20px;
+      padding: 10px;
+      font-size: 18px;
+      background: #f2f2f2;
+      border: 1px solid #ccc;
+      width: fit-content;
+    }
+    #mapaSVG {
+      width: 100%;
+      height: auto;
+      border: 1px solid #999;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Información del Mapa</h2>
+  <div id="info">Pasa el mouse sobre una zona...</div>
+
+  <object id="mapaSVG" type="image/svg+xml" data="mapa.svg"></object>
+
+  <script>
+    const infoDict = {
+      caja1: "Caja 1: Zapatería",
+      caja2: "Caja 2: Librería",
+      caja3: "Caja 3: Cafetería",
+      caja4: "Caja 4: Oficina de Correos",
+      caja5: "Caja 5: Farmacia"
+      // Puedes seguir agregando más cajas aquí
+    };
+
+    const infoBox = document.getElementById('info');
+    const svgObject = document.getElementById('mapaSVG');
+
+    svgObject.addEventListener("load", () => {
+      const svgDoc = svgObject.contentDocument;
+      const paths = svgDoc.querySelectorAll("path");
+
+      paths.forEach(path => {
+        const id = path.id;
+        if (!id) return; // Ignorar paths sin id
+
+        path.style.cursor = "pointer";
+
+        path.addEventListener("mouseover", () => {
+          infoBox.textContent = infoDict[id] || "Sin información para: " + id;
+        });
+
+        path.addEventListener("mouseout", () => {
+          infoBox.textContent = "Pasa el mouse sobre una zona...";
+        });
+      });
+    });
+  </script>
+
+</body>
+</html>
